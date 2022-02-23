@@ -1,0 +1,847 @@
+{
+  "uuid": "c9289c0c-1dbf-4f97-908e-a5138b9b4d03",
+  "name": "CycleCheckElement",
+  "description": "",
+  "nodes_direction": "fromLeftToRigth",
+  "verbose": true,
+  "rights": [
+    "alsebochkarev"
+  ],
+  "robot_graphs": [
+    {
+      "name": "CycleCheckElement",
+      "uuid": "5fcb5e89-3bab-4282-b9db-1b2dac346930",
+      "snippet_robot_uuid": null,
+      "sha1": "130728dd4108e0ed20583a797362ae1d974761d9",
+      "vars": {
+        "global": [
+          {
+            "name": "RITA_ENV",
+            "uuid": "f7d06b6b-c7bc-40d2-817d-65a7ffc59e67",
+            "value": {},
+            "data_type": "base.dictionary",
+            "item_type": "base.string"
+          },
+          {
+            "name": "exists",
+            "uuid": "b19dbe2f-dcfb-4685-8100-667fd288bd00",
+            "data_type": "base.bool"
+          },
+          {
+            "name": "element",
+            "uuid": "e1070d55-ce67-4e05-a556-3d73beb69a43",
+            "data_type": "object.uiElement"
+          },
+          {
+            "name": "ex",
+            "uuid": "83c8f615-09e8-4274-930b-8bd571598053",
+            "data_type": "object.exception"
+          },
+          {
+            "name": "title",
+            "data_type": "base.string",
+            "value": "main_window",
+            "uuid": "13cd730a-00e2-4485-ab0e-5fd45f3992c2"
+          }
+        ]
+      },
+      "id": "garpa@1.0.0",
+      "nodes": {
+        "282": {
+          "id": 282,
+          "data": {
+            "uuid": "34aa6278-febc-4e41-ba59-e10d7af57d5c",
+            "vars": {
+              "inputs": [],
+              "outputs": []
+            },
+            "title": "Старт",
+            "input_socket_position": "left",
+            "output_socket_position": "right"
+          },
+          "inputs": {},
+          "outputs": {
+            "out_exec": {
+              "connections": [
+                {
+                  "node": 286,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "position": [
+            -500,
+            -101
+          ],
+          "name": "base.start"
+        },
+        "283": {
+          "id": 283,
+          "data": {
+            "uuid": "e77fc44e-def7-4708-bbd1-c06bf8d06c5a",
+            "vars": {
+              "inputs": [],
+              "outputs": []
+            },
+            "title": "Финиш",
+            "input_socket_position": "left",
+            "output_socket_position": "right"
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 286,
+                  "output": "completed_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {},
+          "position": [
+            248,
+            127
+          ],
+          "name": "base.finish"
+        },
+        "286": {
+          "id": 286,
+          "data": {
+            "uuid": "18be87a7-5145-421d-be89-d3456e26083d",
+            "vars": {
+              "inputs": [
+                {
+                  "name": "condition",
+                  "uuid": "5045e4e3-ed7d-4b6b-bc7a-d4f85064842c",
+                  "value": "True",
+                  "data_type": "base.string"
+                },
+                {
+                  "name": "loop_mode",
+                  "uuid": "06dd12d8-11ac-4482-bf45-fe48a0946c76",
+                  "value": "While",
+                  "data_type": "base.enum"
+                }
+              ],
+              "outputs": []
+            },
+            "title": "Цикл While",
+            "input_socket_position": "left",
+            "output_socket_position": "right"
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 282,
+                  "output": "out_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "loop_body_exec": {
+              "connections": [
+                {
+                  "node": 296,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            },
+            "completed_exec": {
+              "connections": [
+                {
+                  "node": 283,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "position": [
+            -175.38711930706904,
+            -103.38278848840457
+          ],
+          "name": "base.loop_while"
+        },
+        "287": {
+          "id": 287,
+          "data": {
+            "uuid": "8cedd230-f1ba-44f2-a96a-e4e767034772",
+            "vars": {
+              "inputs": [
+                {
+                  "name": "selector",
+                  "uuid": "afd62dd0-974d-48e4-bda9-a1cbf6b9d042",
+                  "value": [
+                    {
+                      "idx": {
+                        "type": "text",
+                        "value": "0",
+                        "disabled": false
+                      },
+                      "name": {
+                        "type": "text",
+                        "value": "MainWindow",
+                        "disabled": false
+                      },
+                      "backend": {
+                        "type": "text",
+                        "value": "uia",
+                        "disabled": false
+                      },
+                      "disabled": false,
+                      "class_name": {
+                        "type": "text",
+                        "value": "Window",
+                        "disabled": false
+                      },
+                      "control_id": {
+                        "type": "text",
+                        "value": 0,
+                        "disabled": true
+                      },
+                      "control_type": {
+                        "type": "text",
+                        "value": "Window",
+                        "disabled": false
+                      },
+                      "framework_id": {
+                        "type": "text",
+                        "value": "WPF",
+                        "disabled": false
+                      },
+                      "automation_id": {
+                        "type": "text",
+                        "value": "",
+                        "disabled": true
+                      },
+                      "selector_type": "windows"
+                    },
+                    {
+                      "idx": {
+                        "type": "text",
+                        "value": "1",
+                        "disabled": false
+                      },
+                      "name": {
+                        "type": "text",
+                        "value": "Buttons",
+                        "disabled": false
+                      },
+                      "backend": {
+                        "type": "text",
+                        "value": "uia",
+                        "disabled": false
+                      },
+                      "disabled": false,
+                      "class_name": {
+                        "type": "text",
+                        "value": "GroupBox",
+                        "disabled": false
+                      },
+                      "control_id": {
+                        "type": "text",
+                        "value": null,
+                        "disabled": true
+                      },
+                      "control_type": {
+                        "type": "text",
+                        "value": "Group",
+                        "disabled": false
+                      },
+                      "framework_id": {
+                        "type": "text",
+                        "value": "WPF",
+                        "disabled": false
+                      },
+                      "automation_id": {
+                        "type": "text",
+                        "value": "",
+                        "disabled": true
+                      },
+                      "selector_type": "windows"
+                    },
+                    {
+                      "idx": {
+                        "type": "text",
+                        "value": "0",
+                        "disabled": false
+                      },
+                      "name": {
+                        "type": "text",
+                        "value": "Visible по запросу",
+                        "disabled": false
+                      },
+                      "backend": {
+                        "type": "text",
+                        "value": "uia",
+                        "disabled": false
+                      },
+                      "disabled": false,
+                      "class_name": {
+                        "type": "text",
+                        "value": "Button",
+                        "disabled": false
+                      },
+                      "control_id": {
+                        "type": "text",
+                        "value": null,
+                        "disabled": true
+                      },
+                      "control_type": {
+                        "type": "text",
+                        "value": "Button",
+                        "disabled": false
+                      },
+                      "framework_id": {
+                        "type": "text",
+                        "value": "WPF",
+                        "disabled": false
+                      },
+                      "automation_id": {
+                        "type": "text",
+                        "value": "btnShowedRightButton",
+                        "disabled": true
+                      },
+                      "selector_type": "windows"
+                    },
+                    {
+                      "idx": {
+                        "type": "text",
+                        "value": "0",
+                        "disabled": false
+                      },
+                      "name": {
+                        "type": "text",
+                        "value": "Visible по запросу",
+                        "disabled": false
+                      },
+                      "backend": {
+                        "type": "text",
+                        "value": "uia",
+                        "disabled": false
+                      },
+                      "disabled": false,
+                      "class_name": {
+                        "type": "text",
+                        "value": "TextBlock",
+                        "disabled": false
+                      },
+                      "control_id": {
+                        "type": "text",
+                        "value": null,
+                        "disabled": true
+                      },
+                      "control_type": {
+                        "type": "text",
+                        "value": "Text",
+                        "disabled": false
+                      },
+                      "framework_id": {
+                        "type": "text",
+                        "value": "WPF",
+                        "disabled": false
+                      },
+                      "automation_id": {
+                        "type": "text",
+                        "value": "",
+                        "disabled": true
+                      },
+                      "selector_type": "windows"
+                    }
+                  ],
+                  "data_type": "object.selector"
+                },
+                {
+                  "ref": "",
+                  "name": "element",
+                  "uuid": "8974f1ec-82fc-4571-8c98-c628fc7bac38",
+                  "data_type": "object.uiElement"
+                },
+                {
+                  "ref": "",
+                  "name": "app_window",
+                  "uuid": "47e30366-b7a7-4192-ac8f-774e2e6927a2",
+                  "data_type": "object.uiApp"
+                },
+                {
+                  "name": "timeout",
+                  "uuid": "b248ce81-338d-4e49-bd69-e91eef0bef72",
+                  "value": 5000,
+                  "data_type": "base.integer"
+                },
+                {
+                  "name": "wait_for_ready",
+                  "uuid": "61369b3a-c1ee-46fd-850d-ebadd12b2eaa",
+                  "value": true,
+                  "data_type": "base.bool"
+                }
+              ],
+              "outputs": [
+                {
+                  "ref": "b19dbe2f-dcfb-4685-8100-667fd288bd00",
+                  "name": "exists",
+                  "uuid": "a745bf43-f44a-46bf-a3ad-50a0e420d683",
+                  "value": false,
+                  "data_type": "base.bool"
+                }
+              ]
+            },
+            "title": "Проверка наличия элемента",
+            "input_socket_position": "left",
+            "output_socket_position": "right"
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": []
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": []
+            }
+          },
+          "position": [
+            167.55233524725597,
+            -263.4048258597272
+          ],
+          "name": "ui.element_exists"
+        },
+        "288": {
+          "id": 288,
+          "data": {
+            "uuid": "e2f9e896-6dff-4057-92f8-fa9fba115a90",
+            "vars": {
+              "inputs": [
+                {
+                  "ref": "e1070d55-ce67-4e05-a556-3d73beb69a43",
+                  "name": "entity",
+                  "uuid": "899c656d-8c70-4f10-a6f0-f654f8bceef1",
+                  "data_type": "base.any"
+                },
+                {
+                  "name": "level",
+                  "uuid": "7acb36b6-ce9f-4e1e-8868-e6ee335c5a52",
+                  "value": "DEBUG",
+                  "data_type": "base.enum"
+                },
+                {
+                  "name": "send_to_orchestrator",
+                  "uuid": "52ddbe8a-f5ae-4234-a70f-1fa4af52a9b4",
+                  "value": false,
+                  "data_type": "base.bool"
+                }
+              ],
+              "outputs": []
+            },
+            "title": "Вывод в консоль",
+            "input_socket_position": "left",
+            "output_socket_position": "right"
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 295,
+                  "output": "out_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": []
+            }
+          },
+          "position": [
+            1064.3432835488125,
+            -213.75956766131935
+          ],
+          "name": "base.console_output"
+        },
+        "294": {
+          "id": 294,
+          "data": {
+            "uuid": "308412ba-2b1e-4fd4-872e-a0ef283aa2b8",
+            "vars": {
+              "inputs": [
+                {
+                  "name": "duration",
+                  "uuid": "7dc7f630-4d6e-4cfe-b24e-3c6bf064626b",
+                  "value": 5000,
+                  "data_type": "base.integer"
+                }
+              ],
+              "outputs": []
+            },
+            "title": "Ожидание",
+            "input_socket_position": "left",
+            "output_socket_position": "right"
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": []
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": []
+            }
+          },
+          "position": [
+            210.787109375,
+            -364.74761962890625
+          ],
+          "name": "base.delay"
+        },
+        "295": {
+          "id": 295,
+          "data": {
+            "uuid": "8e9abede-ac37-4806-9346-6c95961b2dfb",
+            "vars": {
+              "inputs": [
+                {
+                  "data_type": "object.selector",
+                  "uuid": "02702327-1ece-4d54-bdee-e77ab6120df8",
+                  "name": "selector",
+                  "value": [
+                    {
+                      "idx": {
+                        "value": "0",
+                        "type": "text",
+                        "disabled": false
+                      },
+                      "name": {
+                        "value": "title",
+                        "variable_uuid": "13cd730a-00e2-4485-ab0e-5fd45f3992c2",
+                        "type": "variable",
+                        "disabled": false
+                      },
+                      "backend": {
+                        "value": "uia",
+                        "type": "text",
+                        "disabled": true
+                      },
+                      "disabled": false,
+                      "class_name": {
+                        "value": "Window",
+                        "type": "text",
+                        "disabled": false
+                      },
+                      "control_id": {
+                        "value": 0,
+                        "type": "text",
+                        "disabled": true
+                      },
+                      "control_type": {
+                        "value": "Window",
+                        "type": "text",
+                        "disabled": false
+                      },
+                      "framework_id": {
+                        "value": "WPF",
+                        "type": "text",
+                        "disabled": true
+                      },
+                      "automation_id": {
+                        "value": "",
+                        "type": "text",
+                        "disabled": true
+                      },
+                      "selector_type": "windows"
+                    },
+                    {
+                      "idx": {
+                        "type": "text",
+                        "value": "1",
+                        "disabled": false
+                      },
+                      "name": {
+                        "type": "text",
+                        "value": "Buttons",
+                        "disabled": false
+                      },
+                      "backend": {
+                        "type": "text",
+                        "value": "uia",
+                        "disabled": true
+                      },
+                      "disabled": false,
+                      "class_name": {
+                        "type": "text",
+                        "value": "GroupBox",
+                        "disabled": true
+                      },
+                      "control_id": {
+                        "type": "text",
+                        "value": null,
+                        "disabled": true
+                      },
+                      "control_type": {
+                        "type": "text",
+                        "value": "Group",
+                        "disabled": true
+                      },
+                      "framework_id": {
+                        "type": "text",
+                        "value": "WPF",
+                        "disabled": true
+                      },
+                      "automation_id": {
+                        "type": "text",
+                        "value": "",
+                        "disabled": true
+                      },
+                      "selector_type": "windows"
+                    },
+                    {
+                      "idx": {
+                        "value": "0",
+                        "type": "text",
+                        "disabled": false
+                      },
+                      "name": {
+                        "value": "Visible по запросу",
+                        "type": "text",
+                        "disabled": false
+                      },
+                      "backend": {
+                        "value": "uia",
+                        "type": "text",
+                        "disabled": true
+                      },
+                      "disabled": false,
+                      "class_name": {
+                        "value": "Button",
+                        "type": "text",
+                        "disabled": true
+                      },
+                      "control_id": {
+                        "value": null,
+                        "type": "text",
+                        "disabled": true
+                      },
+                      "control_type": {
+                        "value": "Button",
+                        "type": "text",
+                        "disabled": true
+                      },
+                      "framework_id": {
+                        "value": "WPF",
+                        "type": "text",
+                        "disabled": true
+                      },
+                      "automation_id": {
+                        "value": "btnShowedRightButton",
+                        "type": "text",
+                        "disabled": true
+                      },
+                      "selector_type": "windows"
+                    }
+                  ]
+                },
+                {
+                  "ref": "",
+                  "data_type": "object.uiElement",
+                  "uuid": "d64630f5-2ccc-45d7-8635-3b47dd6ae14c",
+                  "name": "element"
+                },
+                {
+                  "ref": "",
+                  "data_type": "object.uiApp",
+                  "uuid": "63f89927-b5ad-4c59-8a8c-9b28746793d4",
+                  "name": "app_window"
+                },
+                {
+                  "data_type": "base.enum",
+                  "uuid": "0b4b9022-34ab-4656-802d-c7adcc0101d3",
+                  "name": "appear_mode",
+                  "value": "VISIBLE_ACTIVE"
+                },
+                {
+                  "data_type": "base.integer",
+                  "uuid": "97cada77-3d70-4ce4-9900-383e469f5fef",
+                  "name": "timeout",
+                  "value": 5000
+                },
+                {
+                  "data_type": "base.bool",
+                  "uuid": "4aefce2e-b557-463b-8fbb-edb992421bc3",
+                  "name": "wait_for_ready",
+                  "value": true
+                },
+                {
+                  "data_type": "base.bool",
+                  "uuid": "9c53ac47-2d6d-44d7-8287-49e0b0b232e3",
+                  "name": "continue_on_error",
+                  "value": false
+                }
+              ],
+              "outputs": [
+                {
+                  "ref": "e1070d55-ce67-4e05-a556-3d73beb69a43",
+                  "data_type": "object.uiElement",
+                  "uuid": "2293f1ca-f407-48f6-a5e2-9bc9bb4be7cc",
+                  "name": "found_element"
+                }
+              ]
+            },
+            "title": "Ожидать появление элемента",
+            "input_socket_position": "left",
+            "output_socket_position": "right"
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 296,
+                  "output": "try_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": [
+                {
+                  "node": 288,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "position": [
+            661.537783209376,
+            -216.60965652988756
+          ],
+          "name": "ui.wait_element_appear"
+        },
+        "296": {
+          "id": 296,
+          "data": {
+            "uuid": "052e084b-0ec6-4a7e-a073-cf556c341320",
+            "vars": {
+              "inputs": [],
+              "outputs": [
+                {
+                  "ref": "83c8f615-09e8-4274-930b-8bd571598053",
+                  "name": "exception",
+                  "uuid": "509acf1c-64c0-49bd-8c34-21a9099a329f",
+                  "data_type": "object.exception"
+                }
+              ]
+            },
+            "title": "Обработка исключений",
+            "input_socket_position": "left",
+            "output_socket_position": "right"
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 286,
+                  "output": "loop_body_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "try_exec": {
+              "connections": [
+                {
+                  "node": 295,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            },
+            "catch_exec": {
+              "connections": [
+                {
+                  "node": 297,
+                  "input": "in_exec",
+                  "data": {}
+                }
+              ]
+            },
+            "out_exec": {
+              "connections": []
+            }
+          },
+          "position": [
+            179.50609928265658,
+            -160.30232398546795
+          ],
+          "name": "base.try_catch"
+        },
+        "297": {
+          "id": 297,
+          "data": {
+            "uuid": "8d49fb9a-29f0-4d18-9540-7ff937dadebe",
+            "vars": {
+              "inputs": [
+                {
+                  "name": "entity",
+                  "uuid": "a3405ae6-91a9-4e09-8604-340ad06d19df",
+                  "value": "Нет элемента",
+                  "data_type": "base.any"
+                },
+                {
+                  "name": "level",
+                  "uuid": "1cff04cc-4349-41e1-ace0-d77b6e89b619",
+                  "value": "DEBUG",
+                  "data_type": "base.enum"
+                },
+                {
+                  "name": "send_to_orchestrator",
+                  "uuid": "795b66ba-d69c-46fd-a14f-7cf9d4188260",
+                  "value": false,
+                  "data_type": "base.bool"
+                }
+              ],
+              "outputs": []
+            },
+            "title": "Вывод в консоль",
+            "input_socket_position": "left",
+            "output_socket_position": "right"
+          },
+          "inputs": {
+            "in_exec": {
+              "connections": [
+                {
+                  "node": 296,
+                  "output": "catch_exec",
+                  "data": {}
+                }
+              ]
+            }
+          },
+          "outputs": {
+            "out_exec": {
+              "connections": []
+            }
+          },
+          "position": [
+            666.9853196458391,
+            -104.89508563271006
+          ],
+          "name": "base.console_output"
+        }
+      }
+    }
+  ],
+  "is_snippet": false,
+  "breakpoints": [],
+  "disabled_nodes": [],
+  "linked_accounts": []
+}
