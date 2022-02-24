@@ -16,4 +16,4 @@ if __name__ == '__main__':
     # Start main JSON file processing.
     MainJSONHandler().start_json_processing()
 
-    logging.info(f'ЗАТРАЧЕННОЕ ВРЕМЯ: [{perf_counter()}] сек.')
+    logging.info(f'ELAPSED TIME: [{perf_counter()}] sec.')
