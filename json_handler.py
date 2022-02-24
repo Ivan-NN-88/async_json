@@ -111,7 +111,7 @@ class GraphHandler(BaseGraphHandler, NodeHandler, VarHandler):
         await asyncio.sleep(random())
         await self.standard_graph_processing(graph, *args)
 
-    async def standard_graph_processing(self, graph: dict, loop):
+    async def standard_graph_processing(self, graph: dict):
         logging.info(f'[{graph[JSONKeys.NAME]}] - Start asynchronous graph data processing...')
 
         graph_result = f'\nГраф: {graph[JSONKeys.NAME]}, {graph[JSONKeys.UUID]}\n'
@@ -155,7 +155,7 @@ class MainJSONHandler(GraphHandler):
 
         tasks = []
         for graph in self.graphs:
-            tasks += [loop.create_task(self.graph_processing(graph, loop))]
+            tasks += [loop.create_task(self.graph_processing(graph))]
 
         wait_tasks = asyncio.gather(*tasks)
         try:
